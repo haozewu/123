@@ -4,3 +4,11 @@ str r0, [r1]           ;              //write r0(0x100) to r1(0x1c,56000050)
 ldr r1, [pc, #12]      ;20
 mov r0, #0
 str r0, [r1]
+
+
+immedia_8
+0x400=1 routate to right 22bit
+
+
+0x400
+immedia_8   rotate=22/2    1011 0000 0001
