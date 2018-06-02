@@ -1,0 +1,8 @@
+all:
+  arm-linux-gcc -c -o 1.o 1.c
+  arm-linux-gcc -c -o led.o led.S
+  arm-linux-ld -Ttext 0 led _on.o -o led.elf
+  arm-linux-objcopy -O binary -S led.elf led.bin
+  arm-linux-objdump -D led.elf > led.dis    //dump
+clean:
+rm *.bin *.o *.elf
