@@ -13,10 +13,18 @@ function add_anchor($single_text){
 	$all_head2 = preg_split('<h2>', $single_text);
 	$num = 0;
 	foreach ($all_head2 as $each_one) {
+		// if(($num+1) == sizeof($all_head2)){
+		// 	//do nothing, just to avoid the error anchor print
+		// 	$all_texth .= "h2".$each_one;
+		// }else 
 		if($num == 0){
 			$all_text .= $each_one."h2";
 		}else if(($num%2) == 0){
-			$all_text .= $each_one."h2 id=\"header2-".$num."\"";
+			if(($num+1) ==sizeof($all_head2)){
+				$all_text .= $each_one;
+			}else{
+				$all_text .= $each_one."h2 id=\"header2-".$num."\"";
+			}
 		}else{
 			$all_text .= $each_one."h2";
 		}
@@ -25,11 +33,15 @@ function add_anchor($single_text){
 	$all_head3 = preg_split('<h3>', $all_text);
 	$num = 0;
 	foreach ($all_head3 as $each_one) {
-		// if($num == 0){
-		// 	$all_text .= $each_one."h3";
-		// }else 
-		if(($num%2) == 0){
-			$all_texth3 .= $each_one."h3 id=\"header3-".$num."\"";
+		if(sizeof($all_head3) == 1){
+			//do nothing, just to avoid the error anchor print
+			$all_texth3 = $all_text;
+		}else if(($num%2) == 0){
+			if(($num+1) ==sizeof($all_head3)){
+				$all_texth3 .= $each_one;
+			}else{
+				$all_texth3 .= $each_one."h3 id=\"header3-".$num."\"";
+			}
 		}else{
 			$all_texth3 .= $each_one."h3";
 		}
