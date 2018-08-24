@@ -64,6 +64,7 @@ function add_index($content) {
 			if($val[2] == "h2"){
 				//class="has-regular-font-size"
 				$label = '<p class="has-regular-font-size"><a href=#header2-'.($num*2).'>'.$val[3]."</a></p>";
+				$num += 1;
 			}
 			if($val[2] == "h3"){
 				//class="has-small-font-size"
@@ -71,7 +72,6 @@ function add_index($content) {
 				$h3_num += 1;
 			}
 			$headers .= $label;
-			$num += 1;
 		}
 		//从第一个h2开始分割，也就是以后的正文第一个就要是h2标签，以0X1开始
 		$moreandh2 = preg_split('<h2>', $content, 2);
