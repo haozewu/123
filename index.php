@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: StructureBuilt
-Plugin URI: http://#
+Plugin URI: https://example.com
 Description: 用于官方主题显示文章层次结构
 Version: 1.0
 Author: 夏目秀明
