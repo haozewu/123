@@ -131,6 +131,10 @@ add_filter('the_content', 'wp_copyright',0); // 文章末尾增加版权
 			</div>
 		<?php
 			}
+
+
+
+			
 /**
  * 这里是在编辑文章页面添加一个框
  * 
@@ -158,11 +162,15 @@ add_filter('the_content', 'wp_copyright',0); // 文章末尾增加版权
 				<?php 
 		}
 	}
-
+	/**
+	 * 原作者加的位置不合适，会影响文章的滑动
+	 * 这里改成了侧边显示
+	 * @param string side
+	 */
 	function create_meta_box() {
 		global $theme_name;
 
 		if ( function_exists('add_meta_box') ) {
-			add_meta_box( 'copyright-switch-meta-boxes', '原创申明', 'copyright_switch_meta_boxes', 'post', 'normal', 'high' );
+			add_meta_box( 'copyright-switch-meta-boxes', '原创申明', 'copyright_switch_meta_boxes', 'post', 'side', 'high' );
 		}
 	}
