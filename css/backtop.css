@@ -1,0 +1,2 @@
+.backtop-item{background-image:url(../img/backtop.png);background-repeat:no-repeat}.backtop{position:fixed;left:93%;margin-left:-25px;bottom:12%;z-index:1}.backtop-item{display:block;width:50px;height:50px;-webkit-transition:background-position 1s;-moz-transition:background-position 1s;-ms-transition:background-position 1s;-o-transition:background-position 1s;transition:background-position 1s}.backtop-item-top{background-position:0 0px}.backtop-item-top:hover{background-position:0 -60px}
+/*# sourceMappingURL=backtop.css.map */

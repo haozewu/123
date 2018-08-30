@@ -7,48 +7,41 @@
 ?>
 <div>
     <h2 class="header">配置中心</h2>
-    <div class="option-left">
-        <div class="prism-config">
-            <h3>Prism配置</h3>
-            <p>这里可以进行Prism代码高亮配置</p>
-            <input type="checkbox" /><span>开启代码高亮功能</span>
-        </div>
-        <div class="prism-config">
-            <h3>自动编号配置</h3>
-            <p>这里可以进行自动编号配置</p>
-            <input type="checkbox" /><span>开启自动编号功能</span>
-        </div>
-    </div>
-
-
-	<!-- <div id="copyright-switch">
-
-		<form action="" method="post">
-			<p>
-                <label for="tmb">原创文章版权声明：</label>
-                <br/>
-				<textarea cols="60" rows="5" name="original-copyright">
-                    <?php //echo $options['original-copyright'] ?>
-                </textarea>
-            </p>
-			<p>
-                <label for="tmb">非原创文章版权声明：</label>
-                <br/>
-				<textarea cols="60" rows="3" name="normal-copyright">
-                    <?php //echo $options['normal-copyright'] ?>
-                </textarea>
-            </p>
-            <div id="apTextFormat0Hint" class="nxs_FRMTHint" style="font-size: 11px; margin: 2px; margin-top: 0px; padding:7px; border: 1px solid #C0C0C0; width: 79%; background: #fff; ">
-                <span class="nxs_hili">%TITLE%</span> - 插入POST的标题
-                <br/>
-                <span class="nxs_hili">%URL%</span> - 插入POST的URI
-                <br/>
-                <span class="nxs_hili">%CATS%</span> - 插入POST的范围
+    <form method="post" action="">
+        <div class="option-left">
+            <div class="prism-config">
+                <h3 class="child-header">
+                    <span class="header-text">Prism配置</span>
+                </h3>
+                <p>这里可以进行Prism代码高亮配置</p>
+                <input name='prism_on' type="checkbox"  <?php if($options['prism_on'] == 'on') echo 'checked=\"checked\"'; ?> /><span>开启代码高亮功能</span>
             </div>
-            <?php //submit_button(); ?>
-        </form>	
-    </div> -->
-    
-	<!-- <div style="clear:both;"></div> -->
-	<?php //form_bottom(); ?>
+            <div class="prism-config">
+            <h3 class="child-header">
+                    <span class="header-text">自动编号配置</span>
+            </h3>
+                <p>这里可以进行自动编号配置</p>
+                <input name='num_on' type="checkbox" <?php if($options['num_on'] == 'on') echo 'checked=\"checked\"'; ?> /><span>开启自动编号功能</span>
+            </div>
+            <div class="prism-config">
+            <h3 class="child-header">
+                    <span class="header-text">返回顶部配置</span>
+            </h3>
+                <p>这里可以进行返回顶部配置</p>
+                <input name='backtop_on' type="checkbox" <?php if($options['backtop_on'] == 'on') echo 'checked=\"checked\"'; ?> /><span>开启返回顶部功能</span>
+            </div>
+            <div class="prism-config">
+                <h3>原创申明配置</h3>
+                <p>这里可以进行原创申明配置</p>
+                <input name='copyright_on' type="checkbox"  <?php if($options['copyright_on'] == 'on') echo 'checked=\"checked\"'; ?> /><span>开启原创保护功能暂时不管用</span>
+                <br/>
+                <span>原创声明：</span><input type="input" name="orign" value=<?php echo $options['orign']; ?> />
+                <br/>
+                <span>非原创声明：</span><input type="input" name="not_orign"  value=<?php echo $options['not_orign']; ?> />
+            </div>
+        </div>
+        <div>
+            <?php submit_button(); ?>
+        </div>
+    </form>
 </div>

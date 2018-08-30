@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAeA,OAAQ,CACJ,SAAS,CAAE,IAAI,CAEnB,YAAa,CACT,KAAK,CAAE,KAAK,CACZ,MAAM,CAAE,SAAS,CAErB,aAAa,CACT,MAAM,CAAE,SAAS",
-"sources": ["control.scss"],
-"names": [],
-"file": "control.css"
-}
