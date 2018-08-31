@@ -1,9 +1,9 @@
-=== StructureBuilt ===
-Contributors: 夏目秀明
+=== Ciabeta-Panel ===
+Contributors: Ciabeta
 Stable tag: null
 Tested up to: 0.1
 Requires at least: 4.6
 
 == Description ==
 
-用于官方主题显示文章层次结构
+综合化一体式Wordpress网站管理工具

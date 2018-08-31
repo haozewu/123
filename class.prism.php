@@ -4,9 +4,14 @@
  */
 class Prism{
     function __construct() {
-        echo '<link rel="stylesheet" href="https://web-share.bj.bcebos.com/css/prism.css" />
-	<script src="https://web-share.bj.bcebos.com/js/prism.js" type="text/javascript"></script>
-	';
+        /**
+             * 调试查看是否得到参数
+             */
+            //  include('class.debug.php');
+            //  $mydebug = new MyDebug;
+            //  $mydebug->console_log(plugins_url( 'css/prism.css', __FILE__ ));
+        //echo '<link rel="stylesheet" href='.plugins_url( 'css/prism.css', __FILE__ ).' />'; 
+        //echo '<script src='.plugins_url( 'js/prism.js', __FILE__ ).' type=\"text\/javascript\" \/>'; 
     }
 }
 ?>

@@ -1,0 +1,2 @@
+.share-item{background-image:url(../img/qzone.png);background-repeat:no-repeat}.share{position:fixed;left:93%;margin-left:-25px;bottom:12%;margin-bottom:60px;z-index:1}.share-item{display:block;width:50px;height:50px;-webkit-transition:background-position 1s;-moz-transition:background-position 1s;-ms-transition:background-position 1s;-o-transition:background-position 1s;transition:background-position 1s}.share-qzone{background-position:0 -60px}.share-qzone:hover{background-position:0 0px}
+/*# sourceMappingURL=shareqzone.css.map */

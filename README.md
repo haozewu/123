@@ -1,2 +1,0 @@
-# StructureBuilt
-简介：一个简单的WordPress文章框架生成插件，实现在twentyfifteen官方主题中样式代码js/css的引入，实现0X0 目录下文章大纲以及锚的列出。
