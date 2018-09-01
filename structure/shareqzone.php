@@ -32,5 +32,5 @@
         }
         ?>
         <a target="_blank" href=<?php echo "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?".
-        "url="."http://sduboy.cn/WP/2018/08/26/"."&title=".UrlEncode(get_the_title()."|".get_bloginfo('name'))."&summary=".UrlEncode(get_the_excerpt())."&desc="."我看过这篇文章，你可能会觉得它有趣。"."&pics=".catch_first_image_2share(); ?> class="share-item share-qzone"></a>
+        "url=".get_permalink()."&title=".UrlEncode(get_the_title()."|".get_bloginfo('name'))."&summary=".UrlEncode(get_the_excerpt())."&desc="."我看过这篇文章，你可能会觉得它有趣。"."&pics=".catch_first_image_2share(); ?> class="share-item share-qzone"></a>
 </div>
