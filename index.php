@@ -105,54 +105,43 @@ add_action('login_enqueue_scripts','login_protection');
 /**
  * 终于到了实现原创功能的时候了，下面的函数是发post的时候的回调函数，输出一个发post的时候的框的内容
  */
- function ifpost_orign() {
-	global $post;
-	if(get_post_meta($post_id, 'if_post_orign') == 'yes')
-		$if_orign_ok = ' checked="checked"';
-	// else {
-	// 	$if_orign_ok = '';
-	// }
-	echo '<span style="padding-top:5px;display:block;"><input type="checkbox" name="if_post_orign"'.$if_orign_ok.' />申明为原创</span>';
+ function ifpost_orign($post) {
+	// 创建临时隐藏表单，为了安全
+    wp_nonce_field( 'ifpost_orign_meta_box', 'ifpost_orign_nonce' );
+    // 获取之前存储的值
+	$if_orign_ok = get_post_meta($post->ID, 'if_post_orign', true);
+	if($if_orign_ok == 'yes')
+		$checked_ok = ' checked="checked"';
+	//这里不要瞎用同一个参数！！
+	echo '<span style="padding-top:5px;display:block;"><input type="checkbox" value="yes" name="if_post_orign"'.$checked_ok.' />申明为原创</span>';
 }
 /**这段代码实现在保存post的时候执行，连同本参数一并保存 */
 function save_iforign( $post_id ) {
-    // global $post, $copyright_meta_boxes;
-
-        // if ( !wp_verify_nonce( $_POST[$meta_box['name'].'_noncename'], plugin_basename(__FILE__) ))  {
-        //     return $post_id;
-        // }
-		/**
-		 * 不是很明白这里为什么是或者非都要执行同一个命令，感觉像是写错了。
-		 */
-        // if ( 'page' == $_POST['post_type'] ) {
-        //     if ( !current_user_can( 'edit_page', $post_id ))
-        //         return $post_id;
-        // }
-        // else {
-        //     if ( !current_user_can( 'edit_post', $post_id ))
-        //         return $post_id;
-        // }
-		//这里的value参数就是存储在每个文章中的
-		
-		// $data = $_POST['if_post_orign'];
-		if(isset($_POST['if_post_orign'])){
-			// if(get_post_meta($post_id, 'if_post_orign') == '')
-				// add_post_meta($post_id, 'if_post_orign', 'yes', true);
-			// else{
-				// update_post_meta($post_id, 'if_post_orign', 'yes');
-			// }
-		// }else{
-			// if(get_post_meta($post_id, 'if_post_orign') != '')
-				update_post_meta($post_id, 'if_post_orign', 'yes');
-			// else{
-				// add_post_meta($post_id, 'if_post_orign', 'no', true);
-			// }
-		}
 		//这里调试一下看一下参数
 		// require_once('class.debug.php');
     	// $mydebug = new MyDebug;
         // $mydebug->console_log('on');
 		// 这里保存的参数就是post的_value吧
+		// 安全检查
+    // 检查是否发送了一次性隐藏表单内容（判断是否为第三者模拟提交）
+    if ( ! isset( $_POST['ifpost_orign_nonce'] ) ) {
+        return;
+    }
+    // 判断隐藏表单的值与之前是否相同
+    if ( ! wp_verify_nonce( $_POST['ifpost_orign_nonce'], 'ifpost_orign_meta_box' ) ) {
+        return;
+    }
+    // 判断该用户是否有权限
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+ 
+    // 判断 Meta Box 是否为空，要是空的话说明不是原创，这个不能不保存
+    // if ( ! isset( $_POST['if_post_orign'] ) ) {
+    //     return;
+    // }
+    $if_post_orign = $_POST['if_post_orign'];
+    update_post_meta( $post_id, 'if_post_orign', $if_post_orign );
 }
 add_action('save_post', 'save_iforign');
 /**
@@ -168,7 +157,7 @@ function iforign_meta_box() {
 	}
 }
 add_action('admin_menu', 'iforign_meta_box');
-
+//该写原创整合部分了。
 
 /**
  * 加一个后台菜单玩玩
