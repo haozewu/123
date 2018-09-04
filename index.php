@@ -157,8 +157,29 @@ function iforign_meta_box() {
 	}
 }
 add_action('admin_menu', 'iforign_meta_box');
-//该写原创整合部分了。
+//原创整合部分
+function orign_out($content){
 
+		 $settings = get_option('ciabeta-options');
+		 //没有声明global，就显示有问题
+		 if($settings['copyright_on'] == 'on')
+		 {
+			global $post;
+		 
+		 $orign_query = get_post_meta($post->ID, 'if_post_orign', true);
+		 if($orign_query == 'yes')
+			 $content .= $settings['orign'];
+			 else {
+				 $content .= $settings['not_orign'];
+			 }
+
+		 }
+		 
+
+		 return $content;
+
+}
+add_filter( 'the_content', 'orign_out');
 /**
  * 加一个后台菜单玩玩
  * 当点击menu page时，执行本指令

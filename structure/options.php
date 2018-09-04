@@ -43,7 +43,7 @@
                 </h3>
                 <div class="panel-inside">
                     <input name='copyright_on' type="checkbox"  <?php if($options['copyright_on'] == 'on') echo 'checked=\"checked\"'; ?> />
-                    <span>开启原创保护功能暂时不管用</span>
+                    <span>开启原创保护功能</span>
                 </div>
                 <div class="panel-inside">
                     <span>原创声明：</span>
