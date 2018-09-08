@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Ciabeta-Panel
-Plugin URI: https://example.com
+Plugin URI: https://www.zetrix.cn/index.php/2018/09/08/380/
 Description: 综合化一体式Wordpress网站管理工具
 Version: 1.2
 Author: Ciabeta
