@@ -22,8 +22,6 @@ class Orign{
         $if_post_orign = $_POST['if_post_orign'];
         update_post_meta( $post_id, 'if_post_orign', $if_post_orign );
     }
-    
-
     //原创整合部分
     function orign_out($content){
         $settings = get_option('ciabeta-options');
@@ -32,9 +30,9 @@ class Orign{
         global $post;
         $orign_query = get_post_meta($post->ID, 'if_post_orign', true);
         if($orign_query == 'yes')
-            $content .= $settings['orign'];
+            $content .= $settings['not_orign'];
             else {
-                $content .= $settings['not_orign'];
+                $content .= $settings['orign'];
             }
         }
         return $content;
